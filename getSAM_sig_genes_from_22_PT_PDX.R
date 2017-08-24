@@ -2,7 +2,9 @@ rm(list=ls())
 
 # Load libraries
 require(siggenes)
-library(iDissect)
+require(devtools)
+require(roxygen2)
+install_github("yatish-patil/iDissect",force = TRUE)  
 
 ### Creating folder structure
 
@@ -60,7 +62,7 @@ write.table(sam_data_genes,samDataFile,sep = "\t",quote = FALSE,row.names=FALSE)
 ### with low variability in pdx condition
 setwd(outDir)
 samData = read.delim(samDataFile,header = TRUE,sep="\t",row.names = 1);dim(samData)
-iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 80)
-iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 85)
-iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 90)
-iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 95)
+iDissect::iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 80)
+iDissect::iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 85)
+iDissect::iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 90)
+iDissect::iDissect(vData = samData,method = "sd",cond1 = 22,cond2 = 22,fdrCutOff = 95)
